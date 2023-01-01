@@ -13,15 +13,18 @@ export default {
 
 
             <!-- <img @click="mailSelect(mail.id)"  src="../../assets/img/actions-main-cmp/check_box_outline_blank_white_20dp.png"/> -->
-            <img @click="mailSelect(mail.id)"  :src="displayCheckbox(mail)"/>
+            <img @click="mailSelect(mail.id)"  :src="displayCheckbox(mail)" class="btn-active select"/>
 
-            <img  @click.prevent="star(mail.id)" class="cursor-pointer" :src="displayStar(mail)"/>
+            <img  @click.prevent="star(mail.id)" class="cursor-pointer btn-active" :src="displayStar(mail)"/>
         </div>
 
 
         <div>
         <router-link :to="'/mail/' + mail.id">
             <span  class="from cursor-pointer">{{mail.from}}</span>
+            <!-- <span  class="from cursor-pointer" v-if="mail.from">{{mail.from}}</span> -->
+
+            <!-- <span  class="from cursor-pointer" v-else="mail.to">{{mail.to}}</span> -->
         </router-link> 
         </div>
 
@@ -36,10 +39,10 @@ export default {
         </div>
 
         <div class="prev-btns-right">
-            <img class="cursor-pointer" src="../../assets/img/prev-cmp/archive_white_20dp.png"/>
-            <img @click.prevent="remove(mail)" class="cursor-pointer" src="../../assets/img/prev-cmp/delete_white_20dp.png"/>
-            <img class="cursor-pointer" src="../../assets/img/prev-cmp/drafts_white_20dp.png"/>
-            <img  @click.prevent="snooze(mail)" class="cursor-pointer" src="../../assets/img/prev-cmp/schedule_white_20dp.png"/>
+            <img class="cursor-pointer archive" src="../../assets/img/prev-cmp/archive_white_20dp.png"/>
+            <img @click.prevent="remove(mail)" class="cursor-pointer btn-active" src="../../assets/img/prev-cmp/delete_white_20dp.png"/>
+            <img class="cursor-pointer draft" src="../../assets/img/prev-cmp/drafts_white_20dp.png"/>
+            <img  @click.prevent="snooze(mail)" class="cursor-pointer btn-active" src="../../assets/img/prev-cmp/schedule_white_20dp.png"/>
         </div>
 
     </section>
@@ -49,7 +52,7 @@ export default {
         }
     },
     methods: {
-        snooze(mail){
+        snooze(mail) {
             this.$emit('snooze', mail.id)
         },
         remove(mail) {

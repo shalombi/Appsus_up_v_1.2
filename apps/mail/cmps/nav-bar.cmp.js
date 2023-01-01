@@ -19,53 +19,54 @@ export default {
             </div>
 
             <section class="actions flex">
-                <router-link to="/mail">
-                <button>
+
+            <router-link to="/mail">
+                <button class="actions-btn-nav">
                     <img src="../../assets/img/inbox_white_20dp.png"/>
-                    <span>Inbox</span>    
+                    <span class="txt-nav">Inbox</span>    
                     <span> {{ calculateInfo('isReceived') }} </span>
-                </router-link>
                 </button>
+            </router-link>
                 
                 <router-link to="/mail/starred">
-                <button>
+                <button class="actions-btn-nav">
                     <img src="../../assets/img/star.jpeg"/>
-                    <span>Starred</span>    
+                    <span class="txt-nav">Starred</span>    
                     <span>{{ calculateInfo('isStarred') }}</span>
-                </router-link>
                 </button>
+                </router-link>
                 
                 <router-link to="/mail/snooze">
-                <button>
+                <button class="actions-btn-nav">
                     <img src="../../assets/img/schedule_white_20dp.png"/>
-                    <span>Snoozed</span>    
+                    <span class="txt-nav">Snoozed</span>    
                     <span>{{ calculateInfo('isSnoozed') }}</span>
-                </router-link>
                 </button> 
+            </router-link>
                 
                 <router-link to="/mail/sent">
-                <button>
+                <button class="actions-btn-nav">
                     <img src="../../assets/img/send_white_20dp.png"/>
-                    <span>Sent</span>    
+                    <span class="txt-nav">Sent</span>    
                     <span>{{ calculateInfo('isSent') }}</span>
-                </router-link>
                 </button>
+            </router-link>
 
                 <router-link to="/mail/schedule">
-                <button>
+                <button class="actions-btn-nav">
                     <img src="../../assets/img/schedule_send_white_20dp.png"/>
-                    <span>Scheduled</span>    
+                    <span class="txt-nav">Scheduled</span>    
                     <span>{{ calculateInfo('isSchedule') }}</span>
-                </router-link>
                 </button> 
+            </router-link>
 
                 <router-link to="/mail/draft">
-                <button>
+                <button class="actions-btn-nav">
                     <img src="../../assets/img/inbox_white_20dp.png"/>
-                    <span>Drafts</span>    
+                    <span class="txt-nav">Drafts</span>    
                     <span>{{ calculateInfo('isDraft') }}</span>
-                </router-link>
                 </button> 
+            </router-link>
 
             </section >
 
@@ -85,7 +86,7 @@ export default {
         ,
         schedule(time) {
             setTimeout(() => {
-                console.log('wowoowo')
+                // console.log('wowoowo')
                 // this.load()
                 // this.forceRerender()
                 // this.$forceUpdate()

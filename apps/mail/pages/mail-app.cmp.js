@@ -36,7 +36,7 @@ export default {
                 <div class="flex main-action-left">
                    <!-- <button class="nonebcc">  -->
                     <div class="flex select">
-                        <img @click="removeSelected" class="main-action cursor-pointer select" :class="deleteMainStyle"  src="../../assets/img/delete_white_20dp.png"/>
+                        <img @click="removeSelected" class="main-action cursor-pointer select btn-active" :class="deleteMainStyle"  src="../../assets/img/delete_white_20dp.png"/>
                         <img  @click="print" class="main-action cursor-pointer" src="../../assets/img/actions-main-cmp/arrow_drop_down_white_20dp.png"/>
                     </div>
                     <div class="flex ref-more-act">
@@ -48,34 +48,54 @@ export default {
 
 
                 <div class="flex main-action-right">
-                    <span class="mail-to-display">1-14 of 14</span>
+                    <!-- <span class="mail-to-display">1-14 of 14</span> -->
+                    <span class="mail-to-display" v-if="sumMails">1-{{ sumMails }} of {{ sumMails }}</span>
+                    <span class="mail-to-display" v-else="sumMails">0 of 0</span>
+
+                    <!-- this.sumMails -->
                     <img  class="main-action cursor-pointer" src="../../assets/img/actions-main-cmp/chevron_left.png"/>
                     <img  class="main-action cursor-pointer" src="../../assets/img/actions-main-cmp/chevron_right_white_20dp.png"/>
                 </div>
 
             </div>
-
-            <section class="grid main-sorting">
-
-                <div class="cursor-pointer">
-                    <img src="../../assets/img/actions-main-cmp/Primary.png" />
-                    <span>Primary</span>
-                </div>
-
+            <!-- <router-link to="/mail/sent">
+                <button>
+                    <img src="../../assets/img/send_white_20dp.png"/>
+                    <span>Sent</span>    
+                    <span>{{ calculateInfo('isSent') }}</span>
+                </router-link>
+                </button> -->
+                
+                <section class="grid main-sorting" >
+                    
+                    <router-link to="/mail">
+                        <div class="cursor-pointer">
+                            <img src="../../assets/img/actions-main-cmp/Primary.png" />
+                            <span class="main-sorting-txt">Primary</span>
+                        </div>
+                    </router-link>
+                
+            <router-link to="/mail/promotion">
                 <div class="cursor-pointer">
                     <img src="../../assets/img/actions-main-cmp/promotion.png" />
-                    <span>Promotions</span>
+                    <span class="main-sorting-txt">Promotions</span>
                 </div>
+            </router-link>
 
+            <router-link to="/mail/social">
                 <div class="cursor-pointer">
                     <img src="../../assets/img/actions-main-cmp/social.png" />
-                    <span>Social</span>
+                    <span class="main-sorting-txt">Social</span>
                 </div>
+            </router-link>
 
+            <router-link to="/mail/update">
                 <div class="cursor-pointer">
                    <img src="../../assets/img/actions-main-cmp/update.png" />
-                    <span>Updates</span>
+                    <span class="main-sorting-txt">Updates</span>
                 </div>
+            </router-link>
+
             </section>
 
             <mail-prev/>
@@ -105,12 +125,14 @@ export default {
             mails: null,
             filterBy: {},
             mark: false,
-            timeOfSnoozed: null
+            timeOfSnoozed: null,
+            sumMails: null,
         }
     },
     created() {
         this.load()
         eventBus.on('scheduleMsg', this.scheduleMsg)
+        // console.log(new Date());
     },
     methods: {
 
@@ -156,7 +178,7 @@ export default {
         },
         scheduleMsg(time) {
             setTimeout(() => {
-                console.log('wowoowo')
+                // console.log('wowoowo')
                 this.load()
                 // .then
             }, time);
@@ -221,28 +243,13 @@ export default {
         mailsToShow() {
             const regex = new RegExp(this.filterBy.title, 'i')
             // mails = this.mails.filter(mail => regex.test(mail.title))
-            // console.log(mails, '***mails a***')
 
-            var mails = this.mails.filter(mail => (mail.isReceived) && regex.test(mail.title))
-            // console.log(mails, '***mails b***')
-
-
-            // console.log(mails, '***mails***')
-            // mails = this.mails.filter(mail => (!mail.isDraft))
-            //  console.log(mails,'FILTERED')
-
-
-
-            // if (!this.filterByObj) {
-            // mails = this.mails.filter(mail => (!mail.isDraft))
-            // mails = this.mails.filter(mail => (!mail.isSent))
-            // }
-
-            // console.log('*** mails ***', mails);
-            // console.log(this.filterByObj, ';;;;')
+            var mails = this.mails.filter(mail => {
+                (mail.isReceived)
+            })
 
             if (this.filterByObj) {
-                // console.log(mails,'FILTERED IF')
+
                 if (this.filterByObj.byStar) {
                     mails = this.mails.filter(mail => (mail.isStarred))
                 }
@@ -260,19 +267,22 @@ export default {
                 if (this.filterByObj.bySnooze) {
                     mails = this.mails.filter(mail => (mail.isSnoozed))
                 }
+                if (this.filterByObj.byPromotion) {
+                    mails = this.mails.filter(mail => (mail.isPromotion))
+                }
+                if (this.filterByObj.bySocial) {
+                    mails = this.mails.filter(mail => (mail.isSocial))
+                }
+                if (this.filterByObj.byUpdate) {
+                    mails = this.mails.filter(mail => (mail.isUpdate))
+                }
+            }
+            else {
+                mails = this.mails.filter(mail => regex.test(mail.title) && (mail.isReceived) && (!mail.isPromotion) && (!mail.isSocial) && (!mail.isUpdate))
             }
 
-            // else {
-            //     console.log('else ^^^')
-            //     console.log(this.filterByObj, ';;;;')
-            //     mails = this.mails.filter(mail => (!mail.isSent))
-            //     mails = this.mails.filter(mail => (!mail.isDraft))
-
-            // }
-
-            // console.log('*** mails *** part 2 ***', mails);
-            // console.log(mails, '***mails B***')
-
+            this.sumMails = mails.length
+            // console.log(this.sumMails, '*** this.sumMails ***');
             return mails
         },
         deleteMainStyle() {
@@ -281,7 +291,6 @@ export default {
         },
         mailId() {
             // const id = this.$route.params.id
-
             return this.$route.fullPath
         }
 
@@ -289,7 +298,7 @@ export default {
     },
     watch: {
         mailId() {
-            console.log('changed')
+            // console.log('changed')
             this.load()
 
         }

@@ -44,7 +44,19 @@ function save(mail) {
 }
 
 function getEmptyMail() {
-    return { id: '', isSchedule: false, isSent: '', isDraft: '', from: '', title: '', msg: '', isReceived: false }
+    return {
+        id: '',
+        time: {
+            fullDate: ''
+        },
+        isSchedule: false,
+        isSent: '',
+        isDraft: '',
+        from: '',
+        title: '',
+        msg: '',
+        isReceived: false
+    }
 }
 
 function _createMails() {

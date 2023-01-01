@@ -30,27 +30,29 @@ export default {
                 <div class="left-actions-details flex">
 
                     <!-- </div> -->
-                    <div class="arrow-back">
+                    <router-link to="/mail">
+                    <div class="arrow-back active-btn-back">
                       <img src="../../assets/img/details_cmp/arrow_back_white_20dp_1.png"/>
                     </div>
+                    </router-link>
 
                     <div>
-                        <img src="../../assets/img/details_cmp/archive_white_20dp_2.png"/>
-                        <img src="../../assets/img/details_cmp/report_white_20dp_3.png"/>
-                        <img src="../../assets/img/details_cmp/delete_white_20dp_4.png"/> 
+                        <img class="act-det-btn" src="../../assets/img/details_cmp/archive_white_20dp_2.png"/>
+                        <img class="act-det-btn" src="../../assets/img/details_cmp/report_white_20dp_3.png"/>
+                        <img class="act-det-btn" src="../../assets/img/details_cmp/delete_white_20dp_4.png"/> 
                     </div>
                     <span class="separator">|</span>
                     <div>
-                        <img src="../../assets/img/details_cmp/mark_as_unread_white_20dp_5.png"/>
-                        <img src="../../assets/img/details_cmp/schedule_white_20dp_6.png"/>
-                        <img src="../../assets/img/details_cmp/add_task_white_20dp_7.png"/>
+                        <img class="act-det-btn" src="../../assets/img/details_cmp/mark_as_unread_white_20dp_5.png"/>
+                        <img class="act-det-btn" src="../../assets/img/details_cmp/schedule_white_20dp_6.png"/>
+                        <img class="act-det-btn" src="../../assets/img/details_cmp/add_task_white_20dp_7.png"/>
                     </div>
                     <span class="separator">|</span>
     
                     <div>
-                        <img src="../../assets/img/details_cmp/move_to_inbox_white_20dp_8.png"/>
-                        <img src="../../assets/img/details_cmp/label_white_20dp_9.png"/>
-                        <img src="../../assets/img/details_cmp/more_vert_10.png"/>
+                        <img class="act-det-btn" src="../../assets/img/details_cmp/move_to_inbox_white_20dp_8.png"/>
+                        <img class="act-det-btn" src="../../assets/img/details_cmp/label_white_20dp_9.png"/>
+                        <img class="act-det-btn" src="../../assets/img/details_cmp/more_vert_10.png"/>
                    </div>
 
 
@@ -58,9 +60,9 @@ export default {
 
 
                 <div class="right-actions-details flex">
-                <span>27 of many</span>
-                <img src="../../assets/img/details_cmp/chevron_left.png"/>
-                <img src="../../assets/img/details_cmp/chevron_right_white_20dp.png"/>
+                <span class="txt-det-head" >27 of many</span>
+                <img class="act-det-btn" src="../../assets/img/details_cmp/chevron_left.png"/>
+                <img class="act-det-btn" src="../../assets/img/details_cmp/chevron_right_white_20dp.png"/>
                 <span>En</span>
                 <img  class="main-action cursor-pointer" src="../../assets/img/actions-main-cmp/arrow_drop_down_white_20dp.png"/>
 
@@ -96,7 +98,6 @@ export default {
                         <span class="mail-info">{{ mail.from }}</span>
                         <span class="mail-info">{{ mail.address }} </span>
                         
-                        <!-- <div><span>to me</span></div> -->
                     </div>
                     
                     <div class="flex gap12px">
@@ -106,24 +107,27 @@ export default {
                         <img class="action" src="../../assets/img/details_cmp/content-mail-cmp/more_vert_black_20dp.png"/>                       
                     </div>
                 </section>
-
-
-
-                    <span class="mail-info msg-details">{{ mail.msg }}</span>
+                <!-- thumbnail -->
+                
+                <div class="mail-to-details"><span>{{ mail.to }}</span></div>
+                
+                <span class="mail-info msg-details">{{ mail.msg }}</span>
+                    <div>
+                        <img class="thumbnail" :src="mail.thumbnail"/>
+                    </div>
                 </section >
                 <!-- <span>{{ mail.msg }}</span> -->
             </section>
             
-
             <!-- .mail-details .content -->
-              
-
-              <!-- <img :src="imgUrl" alt=""> -->
-              <!-- <button @click="$emit('close')">Close</button> -->
-
-              <!-- TODO:remove comment -->
-              <!-- <router-link class="router-link-back" to="/mail"><h1>Back</h1></router-link> -->
-
+            
+            
+            <!-- <img :src="imgUrl" alt=""> -->
+            <!-- <button @click="$emit('close')">Close</button> -->
+            
+            <!-- TODO:remove comment -->
+            <!-- <router-link class="router-link-back" to="/mail"><h1>Back</h1></router-link> -->
+            
         </section>
     </section>
         
