@@ -9,6 +9,9 @@ import sentPage from './apps/mail/pages/sent-page.cmp.js'
 import draftPage from './apps/mail/pages/draft-page.cmp.js'
 import schedulePage from './apps/mail/pages/schedule-page.cmp.js'
 import snoozedPage from './apps/mail/pages/snoozed-page.cmp.js'
+import promotionPage from './apps/mail/pages/promotion-page.cmp.js'
+import socialPage from './apps/mail/pages/social-page.cmp.js'
+import updatePage from './apps/mail/pages/update-page.cmp.js'
 
 
 const { createRouter, createWebHashHistory } = VueRouter
@@ -56,6 +59,19 @@ const routerOptions = {
       path: '/mail/snooze',
       component: snoozedPage
     },
+    {
+      path: '/mail/promotion',
+      component: promotionPage
+    },
+    {
+      path: '/mail/social',
+      component: socialPage
+    },
+    {
+      path: '/mail/update',
+      component: updatePage
+    },
+
 
   ],
 }
