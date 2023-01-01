@@ -1,0 +1,7 @@
+body {
+  background-image: url('../../img/souvik-banerjee-OMhubJCrtu0-unsplash.jpg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

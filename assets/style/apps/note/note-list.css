@@ -1,0 +1,99 @@
+h2 {
+  font-size: 1em;
+}
+.note-list {
+  columns: auto 170px;
+  padding-bottom: 20px;
+  background-color: var(--clr6);
+  color: var(--clr0);
+}
+
+.note-list .note-item {
+  /* border: 1px solid var(--clr0); */
+  margin-bottom: 20px;
+  padding: 4px 16px 12px;
+  break-inside: avoid;
+  border-radius: 10px;
+  /* box-shadow: 0px 0px 2px 1px black; */
+}
+
+.note-list .note-item:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 10px 1px white;
+}
+
+/* note item */
+.note-item .note-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-block-start: 1px solid white;
+  border-block-end: 1px solid white;
+  max-height: 60px;
+
+  transition: background-color 1s;
+}
+
+.note-item .note-actions:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.note-item .note-actions > *:not(.note-add) {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5em;
+  border-radius: 50%;
+
+  transition: transform 1s;
+}
+
+.note-item .note-actions > *:not(.note-add):hover {
+  box-shadow: 0 0 1px 2px white;
+
+  transform: scale(1.1);
+}
+
+#note-input-color {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 40px;
+  height: 40px;
+  box-shadow: inset 0px 33px 25px 0 #000, inset 0 66px 15px 0px #ccc,
+    inset 0 99px 5px 0px #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  /* background-color: transparent; */
+}
+
+#note-input-color::-webkit-color-swatch {
+  border-radius: 15px;
+  border: none;
+}
+
+.loading {
+  font-size: 4em;
+  color: black;
+  text-shadow: 1px 1px black;
+}
+
+/* MEDIA QUERIES */
+
+/* small */
+
+/* medium */
+@media (min-width: 460px) {
+  h2 {
+    font-size: 1.5em;
+  }
+  .note-list {
+    columns: auto 170px;
+  }
+}
+
+/* large */
+@media (min-width: 720px) {
+  .note-list {
+    columns: auto 240px;
+  }
+}

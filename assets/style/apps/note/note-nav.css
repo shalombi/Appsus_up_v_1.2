@@ -1,0 +1,56 @@
+.note-nav {
+  height: 100%;
+  background-color: var(--clr6);
+  font-family: lato;
+  color: var(--clr0);
+}
+
+.note-nav .nav-header {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-block-start: 1px solid var(--clr0);
+  border-block-end: 1px solid var(--clr0);
+}
+
+.note-nav .nav-header .keep-text {
+  font-weight: 700;
+  color: white;
+}
+
+.nav-btn {
+  display: block;
+  border: none;
+  margin-bottom: 15px;
+  font-size: 1em;
+  font-weight: bold;
+  background-color: transparent;
+  color: var(--clr0);
+  width: 100%;
+  height: 2.5em;
+  border-start-end-radius: 20px;
+  border-end-end-radius: 20px;
+  text-align: start;
+}
+
+.nav-btn.btn-add::before {
+  font-size: 1.3em;
+  content: '📝  ';
+}
+
+.nav-btn.nav-btn-pin::before {
+  font-size: 1.3em;
+  content: '📌';
+}
+
+.nav-btn.nav-btn-delete::before {
+  font-size: 1.3em;
+  content: '🗑️  ';
+}
+
+.nav-btn:hover {
+  background-color: #41331c;
+}

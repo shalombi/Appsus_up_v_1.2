@@ -1,0 +1,7 @@
+ul {
+    list-style-type: none;
+}
+
+ul li span {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

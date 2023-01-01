@@ -1,0 +1,122 @@
+.note-add {
+  position: fixed;
+  top: 30%;
+  left: 25%;
+  width: 50vw;
+  height: 50vh;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: rgb(49 48 50);
+  box-shadow: 0 0 10px 4px grey;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.note-add .note-edit-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* align-items: center; */
+}
+
+.note-add input {
+  min-width: 85px;
+  width: 100%;
+  font-size: 1em;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.note-add input:focus-visible {
+  outline: none;
+}
+
+.form-extras .create-note-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.note-add .btn {
+  width: fit-content;
+  font-size: 1.5em;
+  margin-top: 20px;
+  border: 1px solid white;
+  border-radius: 20px;
+  background-color: var(--clr4);
+  color: var(--clr1);
+}
+
+/* form extras */
+.note-add .form-extras {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-extras .choose-note-type {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-extras .create-note-buttons .btn:hover {
+  box-shadow: 0 0 0 1px white;
+}
+
+/* choose-note-type */
+.choose-note-type {
+  display: flex;
+  gap: 15px;
+}
+
+.choose-note-type > * {
+  width: 60px;
+  font-size: 1.5em;
+  border-radius: 20px;
+  border: none;
+  background-color: transparent;
+}
+
+.choose-note-type > *:hover {
+  box-shadow: 0 0 10px 0.1px white;
+}
+
+.choose-note-type .btn-note-txt::before {
+  content: '📒';
+}
+
+.choose-note-type .btn-note-img::before {
+  content: '🖼️';
+}
+
+.choose-note-type .btn-note-todo::before {
+  content: '☑️';
+}
+
+.create-note-buttons .btn-submit:hover {
+  color: orange;
+  border: 1px solid orange;
+}
+.create-note-buttons .btn-close:hover {
+  color: red;
+  border: 1px solid red;
+}
+
+/* MEDIA QUERIES */
+/* small */
+@media (min-width: 460px) {
+  .form-extras .choose-note-type {
+    flex-direction: row;
+  }
+}
+
+/* medium */
+
+/* large */
