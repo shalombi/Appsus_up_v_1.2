@@ -814,7 +814,7 @@ header {
 
     .mail-preview {
         gap: 18px;
-        grid-template-columns: 0.1fr 0.3fr 0.65fr 0.4fr 0.15fr;
+        grid-template-columns: 0.1fr 0.3fr 0.6fr 0.3fr 0.2fr;
 
         padding: 5px;
     }
@@ -877,5 +877,17 @@ header {
 
     .user-img-icon {
         display: none;
+    }
+
+    .prev-btns-right {
+        display: flex;
+        width: 20px;
+        height: 20px;
+        gap: 4px;
+    }
+
+    .prev-btns-right img {
+        margin-left: 0px;
+
     }
 }
