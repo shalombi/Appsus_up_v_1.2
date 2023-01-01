@@ -40,7 +40,7 @@ export default {
                         <img  @click="print" class="main-action cursor-pointer" src="../../assets/img/actions-main-cmp/arrow_drop_down_white_20dp.png"/>
                     </div>
                     <div class="flex ref-more-act">
-                        <img class="main-action cursor-pointer"  src="../../shalombi.github.io/assets/img/actions-main-cmp/refresh.png"/>
+                        <img class="main-action cursor-pointer"  src="../../assets/img/actions-main-cmp/refresh.png"/>
                         <img  class="main-action cursor-pointer" src="../../assets/img/actions-main-cmp/more_vert.png"/>
                     </div>
                 </div>
