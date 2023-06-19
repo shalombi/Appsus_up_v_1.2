@@ -144,7 +144,6 @@ export default {
                     mail.isSnoozed = true
                     return mail
                 })
-                // TODO: refactor to this function...not duplicate of code....
                 .then((mail) => {
                     mailService.save(mail)
                     setTimeout(() => {
